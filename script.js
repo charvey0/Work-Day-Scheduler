@@ -24,12 +24,15 @@ function init(s, e) {
         html += "</div></div><textarea id='task"+hours[i]+"' class='";
         
         var timeCompare = moment(hours[i], 'h').fromNow();
+console.log("Time: "+hours[i]+"  RESULT: "+timeCompare);        
         if (timeCompare.includes("ago")) {
             if (timeCompare.includes("minutes")) {
                 html += "present";    
             } else {
                 html += "past";
             }
+        } else if (timeCompare.includes("minutes")) {
+            html += "present";    
         } else {
             html += "future";
         }
