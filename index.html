@@ -48,7 +48,6 @@
         var endOfDay = getEndOfDay();
 
 
-        init(startOfDay, endOfDay);
 
         $(".saveBtn").on("click", function (e) {
             var value = e.target.getAttribute("value");
@@ -57,26 +56,33 @@
             localStorage.setItem(taskNum, taskList);
         });
 
-        $("#startEarlier").on("click", function (){
-            startOfDay--;
-            init(startOfDay, endOfDay);
-        });
+         $("#startEarlier").on("click", function (){
+             startOfDay--;
+             localStorage.setItem("startOfDay", startOfDay);
+             init(startOfDay, endOfDay);
+         });
         
         $("#startLater").on("click", function (){
-            startOfDay++;
-            init(startOfDay, endOfDay);
-        });
+             startOfDay++;
+             localStorage.setItem("startOfDay", startOfDay);
+             init(startOfDay, endOfDay);
+         });
 
-        $("#endEarlier").on("click", function (){
-            endOfDay--;
-            init(startOfDay, endOfDay);
-        });
+         $("#endEarlier").on("click", function (){
+             endOfDay--;
+             localStorage.setItem("endOfDay", endOfDay);
+             init(startOfDay, endOfDay);
+         });
 
-        $("#endLater").on("click", function (){
-            endOfDay++;
-            init(startOfDay, endOfDay);
+         $("#endLater").on("click", function (){
+             endOfDay++;
+             localStorage.setItem("endOfDay", endOfDay);
+             init(startOfDay, endOfDay);
+         });
+
+         init(startOfDay, endOfDay);
+
         });
-      });
 
     </script>
 </body>

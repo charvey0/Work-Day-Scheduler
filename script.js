@@ -24,12 +24,11 @@ function init(s, e) {
         html += "</div></div><textarea id='task"+hours[i]+"' class='";
         
         var timeCompare = moment(hours[i], 'h').fromNow();
-console.log(timeCompare);
-        if (timeCompare.includes("ago")) {
+        if (timeCompare.includes("minutes")) {
+            html += "present";
+        } else if (timeCompare.includes("ago")) {
             html += "past";
-            if (timeCompare.includes("minutes")) {
-                html += "present";
-            }
+
         } else {
             html += "future";
         }
@@ -50,10 +49,20 @@ function getTasks(id) {
     
 function getStartOfDay() {
     var t = localStorage.getItem("startOfDay");
-    if (t == null) { return 8; } else { return t; }
+    if (t == null) { 
+        localStorage.setItem("startOfDay", 8);
+        return 8; 
+    } else { 
+        return t; 
+    }
 }
 
 function getEndOfDay() {
-    var t = localStorage.getItem("startOfDay");
-    if (t == null) { return 17; } else { return t; }
+    var t = localStorage.getItem("endOfDay");
+    if (t == null) { 
+        localStorage.setItem("endOfDay", 17);
+        return 17; 
+    } else { 
+        return t; 
+    }
 }
