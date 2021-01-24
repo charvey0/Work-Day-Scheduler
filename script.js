@@ -1,15 +1,14 @@
-function init() {
-    var startOfDay = 8;
-    var endOfDay = 17;
+function init(s, e) {
     var day = moment().format('YYYY-MM-DD');
     var slots = $("#time-slots");
     $("#currentDay").text(moment().format('dddd, MMMM Do, YYYY'));
 
     var hours = [];
-    for (var i=startOfDay ; i < endOfDay ; i++) {
+    for (var i=s ; i < e ; i++) {
         hours.push(i);
     }
 
+    slots.empty();
     for (var i=0 ; i<hours.length ; i++) {
         if (hours[i]<13) {
             if (hours[i] == 12) {
@@ -37,3 +36,12 @@ function getTasks(id) {
     if (tasks === null) { return ""; } else { return tasks; }
 }
     
+function getStartOfDay() {
+    var t = localStorage.getItem("startOfDay");
+    if (t == null) { return 8; } else { return t; }
+}
+
+function getEndOfDay() {
+    var t = localStorage.getItem("startOfDay");
+    if (t == null) { return 17; } else { return t; }
+}

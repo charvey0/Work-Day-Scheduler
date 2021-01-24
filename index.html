@@ -44,7 +44,11 @@
     <script>
       $( document ).ready( function () {
       
-        init();
+        var startOfDay = getStartOfDay();
+        var endOfDay = getEndOfDay();
+
+
+        init(startOfDay, endOfDay);
 
         $(".saveBtn").on("click", function (e) {
             var value = e.target.getAttribute("value");
@@ -53,6 +57,25 @@
             localStorage.setItem(taskNum, taskList);
         });
 
+        $("#startEarlier").on("click", function (){
+            startOfDay--;
+            init(startOfDay, endOfDay);
+        });
+        
+        $("#startLater").on("click", function (){
+            startOfDay++;
+            init(startOfDay, endOfDay);
+        });
+
+        $("#endEarlier").on("click", function (){
+            endOfDay--;
+            init(startOfDay, endOfDay);
+        });
+
+        $("#endLater").on("click", function (){
+            endOfDay++;
+            init(startOfDay, endOfDay);
+        });
       });
 
     </script>
