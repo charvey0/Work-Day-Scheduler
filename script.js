@@ -22,16 +22,21 @@ function init(s, e) {
         var html = "<div class='row'><div class='hour'><div value='"+hours[i]+" class='time-block col-sm-1'>";
         html += time;
         html += "</div></div><textarea id='task"+hours[i]+"' class='";
-        if (time) {
-            html += "present";
-        } else {
+        
+        var timeCompare = moment(hours[i], 'h').fromNow();
+console.log(timeCompare);
+        if (timeCompare.includes("ago")) {
             html += "past";
+            if (timeCompare.includes("minutes")) {
+                html += "present";
+            }
+        } else {
+            html += "future";
         }
         html += " description'>";
         html += tasks;
         html += "</textarea><div value='"+hours[i]+"' class='saveBtn'>✔</div></div>";
         slots.append(html);
-        var timeCompare = moment(hours[i], 'h').fromNow();
         
     }
     
