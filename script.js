@@ -24,11 +24,12 @@ function init(s, e) {
         html += "</div></div><textarea id='task"+hours[i]+"' class='";
         
         var timeCompare = moment(hours[i], 'h').fromNow();
-        if (timeCompare.includes("minutes")) {
-            html += "present";
-        } else if (timeCompare.includes("ago")) {
-            html += "past";
-
+        if (timeCompare.includes("ago")) {
+            if (timeCompare.includes("minutes")) {
+                html += "present";    
+            } else {
+                html += "past";
+            }
         } else {
             html += "future";
         }
@@ -36,6 +37,15 @@ function init(s, e) {
         html += tasks;
         html += "</textarea><div value='"+hours[i]+"' class='saveBtn'>✔</div></div>";
         slots.append(html);
+
+        // reset listeners because the saveBtns were emptied
+        $(".saveBtn").on("click", function (e) {
+            var value = e.target.getAttribute("value");
+            var taskNum = "task" + value;
+            var taskList = document.getElementById(taskNum).value;
+            localStorage.setItem(taskNum, taskList);
+        });
+
         
     }
     
