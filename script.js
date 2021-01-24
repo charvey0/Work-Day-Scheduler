@@ -8,31 +8,34 @@ function init(s, e) {
     }
 
     slots.empty();
-    var currentTime = moment().format('h:mm a');
     for (var i=0 ; i<hours.length ; i++) {
         if (hours[i]<13) {
             if (hours[i] == 12) {
-                var time = hours[i]+":00 pm";
+                var time = hours[i]+":00pm";
             } else {
-                var time = hours[i]+":00 am";
+                var time = hours[i]+":00am";
             }
         } else {
-            var time = hours[i]-12+":00 pm";
+            var time = hours[i]-12+":00pm";
         }
         var tasks = getTasks("task"+hours[i]);
         var html = "<div class='row'><div class='hour'><div value='"+hours[i]+" class='time-block col-sm-1'>";
         html += time;
-        html += "</div></div><textarea id='task"+hours[i]+"' class='future description'>";
+        html += "</div></div><textarea id='task"+hours[i]+"' class='";
+        if (time) {
+            html += "present";
+        } else {
+            html += "past";
+        }
+        html += " description'>";
         html += tasks;
         html += "</textarea><div value='"+hours[i]+"' class='saveBtn'>✔</div></div>";
         slots.append(html);
+        var timeCompare = moment(hours[i], 'h').fromNow();
         
-        console.log("time: "+time+"   currentTime: "+currentTime);
-        console.log(time>currentTime);
     }
     
 }
-
 
 
 function getTasks(id) {
