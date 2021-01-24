@@ -10,7 +10,6 @@ function init() {
         hours.push(i);
     }
 
-
     for (var i=0 ; i<hours.length ; i++) {
         if (hours[i]<13) {
             if (hours[i] == 12) {
@@ -22,11 +21,11 @@ function init() {
             var time = hours[i]-12+":00 PM";
         }
         var tasks = getTasks("task"+hours[i]);
-        var html = "<div class='row'><div class='hour col-sm-1'><div class='time-block col-sm-1'>";
+        var html = "<div class='row'><div class='hour'><div value='"+hours[i]+" class='time-block col-sm-1'>";
         html += time;
         html += "</div></div><textarea id='task"+hours[i]+"' class='future description'>";
         html += tasks;
-        html += "</textarea><div value='"+hours[i]+"' class='saveBtn col-sm-1'>✔</div></div>";
+        html += "</textarea><div value='"+hours[i]+"' class='saveBtn'>✔</div></div>";
         slots.append(html);
     }
     
