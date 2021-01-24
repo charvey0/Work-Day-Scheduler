@@ -27,5 +27,8 @@ function init() {
         slots.append(html);
     }
     
-    
+    $(".saveBtn").on("click", function (e) {
+        console.log(e.target.getAttribute("value"));
+    });
 }
+
