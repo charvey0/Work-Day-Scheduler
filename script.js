@@ -3,11 +3,16 @@ function init() {
     var endOfDay = 17;
     var day = moment().format('YYYY-MM-DD');
     var slots = $("#time-slots");
-    
+    $("#currentDay").text(moment().format('dddd, MMMM Do, YYYY'));
+
     var hours = []
     for (var i=startOfDay ; i < endOfDay ; i++) {
         if (i < 13) {
-            hours.push(i+":00 AM");
+            if (i == 12) {
+                hours.push("12:00 PM")
+            } else {
+                hours.push(i+":00 AM");
+            }
         } else {
             hours.push(i-12+":00 PM");
         }
@@ -19,5 +24,7 @@ function init() {
         html += "</div></div><textarea class='future description'></textarea><div class='saveBtn col-sm-1'>✔</div></div>";
         slots.append(html);
     }
+
+    
 }
 
