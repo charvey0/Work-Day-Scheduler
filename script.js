@@ -29,12 +29,6 @@ function init() {
         slots.append(html);
     }
     
-    $(".saveBtn").on("click", function (e) {
-         var value = e.target.getAttribute("value");
-         var taskNum = "task" + value;
-         var taskList = document.getElementById(taskNum).value;
-         localStorage.setItem(taskNum, taskList);
-    });
 }
 
 

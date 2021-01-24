@@ -29,6 +29,10 @@
       <hr>
       <p id="currentDay" class="lead"></p>
       <hr>
+      <div class="btn btn-success" id="startEarlier">Start Earlier</div> 
+      <div class="btn btn-success" id="startLater">Start Later</div> 
+      <div class="btn btn-success" id="endEarlier">End Earlier</div> 
+      <div class="btn btn-success" id="endLater">End Later</div> 
     </header>
     <div id="time-slots" class="container">
     </div>
@@ -38,7 +42,19 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
     <script>
-      $( document ).ready( init() );
+      $( document ).ready( function () {
+      
+        init();
+
+        $(".saveBtn").on("click", function (e) {
+            var value = e.target.getAttribute("value");
+            var taskNum = "task" + value;
+            var taskList = document.getElementById(taskNum).value;
+            localStorage.setItem(taskNum, taskList);
+        });
+
+      });
+
     </script>
 </body>
 </html>
