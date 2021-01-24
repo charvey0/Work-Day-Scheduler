@@ -23,10 +23,9 @@ function init() {
         }
         var html = "<div class='row'><div class='hour col-sm-1'><div class='time-block col-sm-1'>";
         html += time;
-        html += "</div></div><textarea id='task"+hours[i]+"' class='future description'></textarea><div class='saveBtn col-sm-1'>✔</div></div>";
+        html += "</div></div><textarea id='task"+hours[i]+"' class='future description'></textarea><div value='"+hours[i]+"' class='saveBtn col-sm-1'>✔</div></div>";
         slots.append(html);
     }
     
     
 }
-
