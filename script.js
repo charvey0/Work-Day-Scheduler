@@ -6,8 +6,18 @@ function init() {
     
     var hours = []
     for (var i=startOfDay ; i < endOfDay ; i++) {
-        hours.push(day+"T"+i+":00");
+        if (i < 13) {
+            hours.push(i+":00 AM");
+        } else {
+            hours.push(i-12+":00 PM");
+        }
     }
-    console.log(hours);
+
+    for (var i=0 ; i<hours.length ; i++) {
+        var html = "<div class='row'><div class='hour col-sm-1'><div class='time-block col-sm-1'>";
+        html += hours[i];
+        html += "</div></div><textarea class='future description'></textarea><div class='saveBtn col-sm-1'>✔</div></div>";
+        slots.append(html);
+    }
 }
 
