@@ -28,7 +28,11 @@ function init() {
     }
     
     $(".saveBtn").on("click", function (e) {
-        console.log(e.target.getAttribute("value"));
+         var value = e.target.getAttribute("value");
+         var taskNum = "task" + value;
+         var taskList = document.getElementById(taskNum).value;
+         taskList = taskList.replace(/\n\r?/g, '<br />');
+         localStorage.setItem(taskNum, taskList);
     });
 }
 
