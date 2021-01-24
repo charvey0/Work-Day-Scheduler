@@ -28,11 +28,22 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
-    <div class="container">
-      <!-- Timeblocks go here -->
+    <div id="time-slots" class="container">
+      <div class="row">
+        <div class="hour col-sm-1">
+          <div class="time-block col-sm-1">8:00</div>
+        </div>
+        <textarea class="future description"></textarea>
+        <div class="saveBtn col-sm-1">✔</div>
+      </div>
     </div>
-
+    
+    <script src="script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
-  </body>
+
+    <script>
+      $( document ).ready( init() );
+    </script>
+</body>
 </html>
