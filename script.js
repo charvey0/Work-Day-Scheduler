@@ -46,7 +46,7 @@ function init(s, e) {
         }
         html += " description'>";
         html += tasks;
-        html += "</textarea><div value='"+hours[i]+"' class='saveBtn'>✔</div></div>";
+        html += "</textarea><div value='"+hours[i]+"' class='saveBtn'>💾</div></div>";
         slots.append(html);
 
         // reset listeners because the saveBtns were emptied
