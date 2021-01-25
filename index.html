@@ -23,9 +23,12 @@
   </head>
 
   <body>
+      <!-- Time change button set -->
     <header class="jumbotron">
       <h1 class="display-3">Work Day Scheduler</h1>
       <p class="lead">A simple calendar app for scheduling your work day</p>
+     
+      <!-- Time change button set -->
       <hr>
       <p id="currentDay" class="lead"></p>
       <hr>
@@ -44,12 +47,13 @@
     <script>
       $( document ).ready( function () {
       
+// set the begin and end times
         var startOfDay = getStartOfDay();
         var endOfDay = getEndOfDay();
 
         init(startOfDay, endOfDay);
 
-
+// set listeners for the four buttons that change begin and end times
          $("#startEarlier").on("click", function (){
              startOfDay--;
              localStorage.setItem("startOfDay", startOfDay);
