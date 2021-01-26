@@ -45,10 +45,10 @@ I used jQuery and JavaScript for processing and storing information.  Bootstrap 
  
 ## Functionality Demonstration
 
-
+Image of the application:
 ![Work Day Scheduler in action](./Work_Day_Scheduler.png)
 
 
-Click [here]() for a video demonstration of the application's functionality.
 
+Link to the Github deployment:
 Click [here](https://charvey0.github.io/Work-Day-Scheduler/) to go to the GitHub Page.
