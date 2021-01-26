@@ -5,7 +5,7 @@ This application display a set of blocks of time for a busy employee to plan the
 
 The default day is 8am to 5pm, but the user can adjust the times just in case they arrive early or stay late or (hopefully) arrive late or leave early.
 
-If the time block is within an hour of the current time, the block is red.  There will be two red blocks.  For example, if it is 8:30, the time is 30 minutes away for 8:00 and thirty minutes away from 9:00.
+The present hour will be red. For example, any time from 8:00 to 8:59 will make the 8:00 block red.
 
 If the time block is in the future, the display is green and block in the past are gray.
 
