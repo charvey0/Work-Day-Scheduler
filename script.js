@@ -6,7 +6,7 @@ function init(s, e) {
 
     // create an array of hours from start of the day to the end of the day
     var hours = [];
-    for (var i=s ; i < e ; i++) {
+    for (var i=s ; i<e ; i++) {
         hours.push(i);
     }
 
@@ -33,17 +33,15 @@ function init(s, e) {
         
         // color code by time
         var timeCompare = moment(hours[i], 'h').fromNow();
+        var tense = "future";
         if (timeCompare.includes("ago")) {
-            if (timeCompare.includes("minutes")) {
-                html += "present";    
-            } else {
-                html += "past";
-            }
-        } else if (timeCompare.includes("minutes")) {
-            html += "present";    
-        } else {
-            html += "future";
+             tense = "past";
+             if (timeCompare.includes("minute") || timeCompare.includes("second")) {
+                tense = "present";
+             }   
         }
+        html += tense;
+
         html += " description'>";
         html += tasks;
         html += "</textarea><div value='"+hours[i]+"' class='saveBtn'>💾</div></div>";
@@ -73,7 +71,7 @@ function getStartOfDay() {
     var t = localStorage.getItem("startOfDay");
     if (t == null) { 
         localStorage.setItem("startOfDay", 8);
-        return 8; 
+        return 8;
     } else { 
         return t; 
     }
